@@ -1,0 +1,14 @@
+[Unit]
+Description=Standing Desk Monitor
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/standing-desk-detector/log-standing-time-influxdb.py
+WorkingDirectory=/home/pi/standing-desk-detector
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
