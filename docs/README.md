@@ -23,6 +23,8 @@ Data is written to InfluxDB and visualized in Grafana.
 
 # 2. Wiring
 
+![Circuit Diagram](circuit-diagram.png "Circuit diagram")
+
 ## HC-SR501 (PIR)
 - VCC → 5V (Pin 2 or 4)
 - GND → Ground (Pin 6)
