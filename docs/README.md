@@ -269,6 +269,8 @@ sudo systemctl start grafana-server
 
 # 9. Grafana Panels
 
+![Grafana Dashboard](grafana-dashboard.png "Grafana dashboard")
+
 ## Current Status
 Query:
 ```
