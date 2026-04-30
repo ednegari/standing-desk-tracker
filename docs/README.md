@@ -1,5 +1,17 @@
 # Standing Desk Presence Tracker
 
+## Background
+After sitting at a desk most of the day every day for over 6 years (working from home), 
+I got a standing desk. I wanted a way to track how much time I actually spend standing 
+vs. sitting. I already had a DHT22 temperature and humidity sensor connected to a 
+Raspberry Pi 4 that I was using as a secondary desktop. I realized I could use some 
+cheap components (HC-SR501 PIR Motion and HC-SR04 Ultrasonic Distance sensors) to 
+determine if I'm present at the desk, and if the desk is low (sitting) or high 
+(standing). The Raspberry Pi 4 is sitting on top of a small file cabinet under a desk. 
+The HC-SR04 Ultrasonic Distance sensor is pointing straight up at the bottom of the desk 
+to determine desk height, and the PIR Motion sensor is pointing at where I sit/stand to 
+determine presence.
+
 ## Overview
 
 This project uses a Raspberry Pi with sensors to detect:
@@ -76,6 +88,9 @@ exit
 # 4. Sensor Test Scripts
 
 ## HC-SR501 PIR Test Script
+Script to test if PIR sensor detects motion.
+
+Usage: [./hc-sr501-test.py](https://github.com/ednegari/standing-desk-tracker/blob/main/test_scripts/hc-sr501-test.py)
 
 ```python
 #!/usr/bin/python3
@@ -120,7 +135,7 @@ finally:
     GPIO.cleanup()
 ```
 
-Expected:
+Expected output:
 ```
 <timestamp> - MOTION DETECTED
 <timestamp> - NO MOTION
@@ -129,11 +144,9 @@ Expected:
 ---
 
 ## HC-SR04 Test Script
+Script to test if Ultrasonic sensor can read distance.
 
-
-Basic distance test – `hc-sr501-test.py`
-
-Usage: `./hc-sr04-test.py [repeat interval]`
+Usage: [./hc-sr04-test.py](https://github.com/ednegari/standing-desk-tracker/blob/main/test_scripts/hc-sr04-test.py) `[repeat interval]`
 
 ```python
 #!/usr/bin/python3
